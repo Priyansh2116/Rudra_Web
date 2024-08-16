@@ -10,6 +10,8 @@
   },
   "dependencies": {
     "@radix-ui/react-slot": "^1.1.0",
+    "@react-three/drei": "^9.109.5",
+    "@react-three/fiber": "^8.17.5",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",
     "init": "^0.1.2",
@@ -17,14 +19,17 @@
     "next": "14.2.5",
     "react": "^18",
     "react-dom": "^18",
-    "shadcn-ui": "^0.8.0",
+    "shadcn-ui": "^0.2.3",
     "tailwind-merge": "^2.4.0",
-    "tailwindcss-animate": "^1.0.7"
+    "tailwindcss-animate": "^1.0.7",
+    "three": "^0.167.1",
+    "three-stdlib": "^2.32.2"
   },
   "devDependencies": {
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
+    "@types/three": "^0.167.1",
     "eslint": "^8",
     "eslint-config-next": "14.2.5",
     "postcss": "^8",
