@@ -2,6 +2,7 @@
 
 'use client';
 import Navbar from '../components/ui/Navbar';
+import Link from 'next/link';
 
 const Home = () => {
   return (
@@ -29,6 +30,7 @@ const Home = () => {
       {/* About Us Section */}
       <div className="min-h-screen bg-black flex items-center justify-between pr-8 pl-8" id="about">
         <div className="w-1/2">
+          {/* Optional image or content */}
         </div>
         <div className="bg-black bg-opacity-80 text-white p-10 max-w-md">
           <h2 className="text-4xl mb-6">About Us</h2>
@@ -48,7 +50,69 @@ const Home = () => {
       <div className="min-h-screen bg-black flex flex-col items-center justify-center py-16" id="team">
         <h2 className="text-white text-4xl mb-12">Our Team</h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-10 text-center">
-          {/* Add your team members here */}
+          {/* Team Member 1 */}
+          <Link href="/team-lead">
+            <div className="bg-gray-800 p-6 rounded-lg hover:bg-gray-700 transition-colors duration-300">
+              <img src="/team-lead.png" alt="Team Lead" className="w-32 h-32 mx-auto rounded-full" />
+              <h3 className="text-white text-xl mt-4">Team Lead</h3>
+            </div>
+          </Link>
+
+          {/* Team Member 2 */}
+          <Link href="/team-manager">
+            <div className="bg-gray-800 p-6 rounded-lg hover:bg-gray-700 transition-colors duration-300">
+              <img src="/team-manager.png" alt="Team Manager" className="w-32 h-32 mx-auto rounded-full" />
+              <h3 className="text-white text-xl mt-4">Team Manager</h3>
+            </div>
+          </Link>
+
+          {/* Team Member 3 */}
+          <Link href="/technical-director">
+            <div className="bg-gray-800 p-6 rounded-lg hover:bg-gray-700 transition-colors duration-300">
+              <img src="/technical-director.png" alt="Technical Director" className="w-32 h-32 mx-auto rounded-full" />
+              <h3 className="text-white text-xl mt-4">Technical Director</h3>
+            </div>
+          </Link>
+
+          {/* Mechanical Domain */}
+          <Link href="/mechanical-domain">
+            <div className="bg-gray-800 p-6 rounded-lg hover:bg-gray-700 transition-colors duration-300">
+              <img src="/mechanical-domain.png" alt="Mechanical Domain" className="w-32 h-32 mx-auto rounded-full" />
+              <h3 className="text-white text-xl mt-4">Mechanical Domain</h3>
+            </div>
+          </Link>
+
+          {/* Electronics Domain */}
+          <Link href="/electronics-domain">
+            <div className="bg-gray-800 p-6 rounded-lg hover:bg-gray-700 transition-colors duration-300">
+              <img src="/electronics-domain.png" alt="Electronics Domain" className="w-32 h-32 mx-auto rounded-full" />
+              <h3 className="text-white text-xl mt-4">Electronics Domain</h3>
+            </div>
+          </Link>
+
+          {/* Coding Domain */}
+          <Link href="/coding-domain">
+            <div className="bg-gray-800 p-6 rounded-lg hover:bg-gray-700 transition-colors duration-300">
+              <img src="/coding-domain.png" alt="Coding Domain" className="w-32 h-32 mx-auto rounded-full" />
+              <h3 className="text-white text-xl mt-4">Coding Domain</h3>
+            </div>
+          </Link>
+
+          {/* Life Science Domain */}
+          <Link href="/life-science-domain">
+            <div className="bg-gray-800 p-6 rounded-lg hover:bg-gray-700 transition-colors duration-300">
+              <img src="/life-science-domain.png" alt="Life Science Domain" className="w-32 h-32 mx-auto rounded-full" />
+              <h3 className="text-white text-xl mt-4">Life Science Domain</h3>
+            </div>
+          </Link>
+
+          {/* Corporate Domain */}
+          <Link href="/corporate-domain">
+            <div className="bg-gray-800 p-6 rounded-lg hover:bg-gray-700 transition-colors duration-300">
+              <img src="/corporate-domain.png" alt="Corporate Domain" className="w-32 h-32 mx-auto rounded-full" />
+              <h3 className="text-white text-xl mt-4">Corporate Domain</h3>
+            </div>
+          </Link>
         </div>
       </div>
 
@@ -83,21 +147,9 @@ const Home = () => {
             </div>
             <div className="flex items-center space-x-4">
               <svg className="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M12 2C6.478 2 2 6.478 2 12c0 4.838 3.871 8.774 8.646 9.73.632.116.861-.276.861-.614v-2.197c-3.518.751-4.224-1.69-4.224-1.69-.504-1.277-1.23-1.617-1.23-1.617-.966-.66.074-.648.074-.648 1.068.075 1.632 1.107 1.632 1.107.951 1.633 2.491 1.16 3.098.886.097-.69.374-1.16.682-1.427-2.809-.318-5.759-1.407-5.759-6.27 0-1.386.484-2.521 1.276-3.412-.128-.318-.554-1.601.12-3.34 0 0 1.047-.335 3.434 1.277 1.978-.551 4.113-.551 6.091 0 2.387-1.612 3.434-1.277 3.434-1.277.673 1.739.246 3.022.12 3.34.794.891 1.275 2.026 1.275 3.412 0 4.875-2.952 5.948-5.767 6.258.384.331.726.984.726 1.982v2.938c0 .345.222.735.867.61C18.13 20.772 22 16.838 22 12c0-5.522-4.478-10-10-10z"></path>
+                <path d="M12 2C6.478 2 2 6.478 2 12c0 4.838 3.871 8.774 8.646 9.73.632.116.861-.276.861-.614v-2.197c-3.518.751-4.224-1.69-4.224-1.69-.504-1.277-1.23-1.617-1.23-1.617-.975-.666.073-.653.073-.653 1.076.075 1.643 1.102 1.643 1.102.959 1.643 2.512 1.168 3.129.893.099-.694.374-1.168.681-1.436-2.806-.32-5.752-1.403-5.752-6.245 0-1.38.488-2.509 1.291-3.391-.129-.318-.559-1.6.122-3.33 0 0 1.054-.338 3.455 1.293a12.083 12.083 0 016.288 0c2.401-1.631 3.455-1.293 3.455-1.293.681 1.73.251 3.012.122 3.33.804.882 1.291 2.011 1.291 3.391 0 4.858-2.958 5.92-5.773 6.232.385.33.727.985.727 1.99v2.948c0 .342.231.735.868.611C18.134 20.776 22 16.84 22 12c0-5.522-4.478-10-10-10z"></path>
               </svg>
-              <span className="text-white">@username</span>
-            </div>
-            <div className="flex items-center space-x-4">
-              <svg className="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M12 2C6.478 2 2 6.478 2 12c0 4.838 3.871 8.774 8.646 9.73.632.116.861-.276.861-.614v-2.197c-3.518.751-4.224-1.69-4.224-1.69-.504-1.277-1.23-1.617-1.23-1.617-.966-.66.074-.648.074-.648 1.068.075 1.632 1.107 1.632 1.107.951 1.633 2.491 1.16 3.098.886.097-.69.374-1.16.682-1.427-2.809-.318-5.759-1.407-5.759-6.27 0-1.386.484-2.521 1.276-3.412-.128-.318-.554-1.601.12-3.34 0 0 1.047-.335 3.434 1.277 1.978-.551 4.113-.551 6.091 0 2.387-1.612 3.434-1.277 3.434-1.277.673 1.739.246 3.022.12 3.34.794.891 1.275 2.026 1.275 3.412 0 4.875-2.952 5.948-5.767 6.258.384.331.726.984.726 1.982v2.938c0 .345.222.735.867.61C18.13 20.772 22 16.838 22 12c0-5.522-4.478-10-10-10z"></path>
-              </svg>
-              <span className="text-white">email@example.com</span>
-            </div>
-            <div className="flex items-center space-x-4">
-              <svg className="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M12 2C6.478 2 2 6.478 2 12c0 5.25 3.955 9.574 9.044 10.642.661.103.935-.299.935-.664v-2.34c-2.877.593-3.482-1.29-3.482-1.29-.517-1.247-1.262-1.58-1.262-1.58-.992-.68.066-.667.066-.667 1.08.072 1.655 1.113 1.655 1.113.99 1.63 2.544 1.155 3.163.882.1-.712.378-1.155.686-1.42-2.793-.311-5.75-1.376-5.75-6.168 0-1.356.482-2.465 1.27-3.364-.129-.313-.553-1.578.117-3.301 0 0 1.04-.333 3.415 1.265 1.96-.546 4.085-.546 6.042 0 2.374-1.598 3.414-1.265 3.414-1.265.671 1.723.247 3.001.12 3.301.79.899 1.27 2.008 1.27 3.364 0 4.805-2.959 5.847-5.782 6.155.385.326.73.971.73 1.958v2.897c0 .365.273.768.943.662C20.049 21.57 24 17.248 24 12c0-5.522-4.478-10-10-10z"></path>
-              </svg>
-              <span className="text-white">github.com/yourprofile</span>
+              <span className="text-white">rudra@srmist.edu.in</span>
             </div>
           </div>
         </div>
