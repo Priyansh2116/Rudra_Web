@@ -1,15 +1,44 @@
-// page.tsx
-
 'use client';
+
+import { useState } from 'react';
 import Navbar from '../components/ui/Navbar';
 import Link from 'next/link';
 
 const Home = () => {
+  // Array of image URLs for the gallery
+  const galleryImages = [
+    '/gallery-item1.png',
+    '/gallery-item2.png',
+    '/gallery-item3.png',
+    '/gallery-item4.png',
+    '/gallery-item5.png',
+    '/gallery-item6.png',
+    '/gallery-item7.png',
+    '/gallery-item8.png',
+  ];
+
+  // State to track the current image index
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  // Function to go to the previous image
+  const previousSlide = () => {
+    setCurrentIndex((prevIndex) =>
+      prevIndex === 0 ? galleryImages.length - 1 : prevIndex - 1
+    );
+  };
+
+  // Function to go to the next image
+  const nextSlide = () => {
+    setCurrentIndex((prevIndex) =>
+      prevIndex === galleryImages.length - 1 ? 0 : prevIndex + 1
+    );
+  };
+
   return (
     <div>
       <style jsx>{`
         html {
-          scroll-behavior: smooth; // Enables smooth scrolling
+          scroll-behavior: smooth;
         }
       `}</style>
 
@@ -17,7 +46,7 @@ const Home = () => {
       <div
         className="relative min-h-screen bg-cover bg-center"
         style={{
-          backgroundImage: `url('/background-image.png')`, // Ensure the image is in the public directory
+          backgroundImage: `url('/background-image.png')`,
         }}
         id="home"
       >
@@ -29,9 +58,7 @@ const Home = () => {
 
       {/* About Us Section */}
       <div className="min-h-screen bg-black flex items-center justify-between pr-8 pl-8" id="about">
-        <div className="w-1/2">
-          {/* Optional image or content */}
-        </div>
+        <div className="w-1/2"></div>
         <div className="bg-black bg-opacity-80 text-white p-10 max-w-md">
           <h2 className="text-4xl mb-6">About Us</h2>
           <p className="mb-6">
@@ -122,35 +149,60 @@ const Home = () => {
       </div>
 
       {/* Gallery Section */}
-      <div className="min-h-screen bg-gray-400 flex items-center justify-center" id="gallery">
-        <h2 className="text-gray-900 text-4xl">Gallery</h2>
+      <div className="min-h-screen bg-black flex flex-col items-center justify-center py-16" id="gallery">
+        <h2 className="text-white text-4xl mb-12">Gallery</h2>
+        <div className="relative w-full max-w-4xl flex items-center justify-center">
+          {/* Left Arrow */}
+          <button
+            className="absolute left-0 transform -translate-x-16 bg-gray-500 hover:bg-gray-700 text-white font-bold py-3 px-6 rounded-full focus:outline-none focus:shadow-outline"
+            onClick={previousSlide}
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+            </svg>
+          </button>
+
+          {/* Gallery Image */}
+          <img
+            src={galleryImages[currentIndex]}
+            alt={`Gallery Item ${currentIndex + 1}`}
+            className="w-full h-[550px] object-cover rounded-lg"
+          />
+
+          {/* Right Arrow */}
+          <button
+            className="absolute right-0 transform translate-x-16 bg-gray-500 hover:bg-gray-700 text-white font-bold py-3 px-6 rounded-full focus:outline-none focus:shadow-outline"
+            onClick={nextSlide}
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+            </svg>
+          </button>
+        </div>
       </div>
 
       {/* Sponsorship Section */}
       <div className="min-h-screen bg-gray-500 flex items-center justify-center" id="sponsorship">
-        <h2 className="text-gray-900 text-4xl">Sponsorship</h2>
+        <h2 className="text-white text-4xl">Sponsorship</h2>
       </div>
 
-      {/* Contact Us Section */}
-      <div className="min-h-screen bg-black flex flex-col items-center justify-center py-16" id="contact">
+        {/* Contact Us Section */}
+        <div className="min-h-screen bg-black flex flex-col items-center justify-center py-16" id="contact">
         <h2 className="text-white text-4xl mb-12">Contact Us</h2>
         <div className="flex flex-col sm:flex-row space-y-8 sm:space-y-0 sm:space-x-8">
           <div className="bg-gray-700 p-16 rounded-lg shadow-lg flex items-center justify-center w-[480px] h-[480px]">
             <img src="/image.png" alt="Icon or Image" className="w-64 h-64 object-contain" />
           </div>
           <div className="bg-gray-800 p-16 rounded-lg shadow-lg flex flex-col justify-between w-[480px] h-[480px]">
-            <div className="flex items-center space-x-4">
-              <svg className="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 20 20">
-                <path d="M2.94 3.94a10.14 10.14 0 001.94 13.16l2.83-2.83A7.97 7.97 0 013 8a8.002 8.002 0 019-7.94l2.83 2.83A10.14 10.14 0 002.94 3.94z"></path>
-              </svg>
-              <span className="text-white">+1 234 567 890</span>
-            </div>
-            <div className="flex items-center space-x-4">
-              <svg className="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M12 2C6.478 2 2 6.478 2 12c0 4.838 3.871 8.774 8.646 9.73.632.116.861-.276.861-.614v-2.197c-3.518.751-4.224-1.69-4.224-1.69-.504-1.277-1.23-1.617-1.23-1.617-.975-.666.073-.653.073-.653 1.076.075 1.643 1.102 1.643 1.102.959 1.643 2.512 1.168 3.129.893.099-.694.374-1.168.681-1.436-2.806-.32-5.752-1.403-5.752-6.245 0-1.38.488-2.509 1.291-3.391-.129-.318-.559-1.6.122-3.33 0 0 1.054-.338 3.455 1.293a12.083 12.083 0 016.288 0c2.401-1.631 3.455-1.293 3.455-1.293.681 1.73.251 3.012.122 3.33.804.882 1.291 2.011 1.291 3.391 0 4.858-2.958 5.92-5.773 6.232.385.33.727.985.727 1.99v2.948c0 .342.231.735.868.611C18.134 20.776 22 16.84 22 12c0-5.522-4.478-10-10-10z"></path>
-              </svg>
-              <span className="text-white">rudra@srmist.edu.in</span>
-            </div>
+            <p className="text-white text-xl">
+              Email: <a href="mailto:rudrateam@example.com" className="text-blue-500">rudrateam@example.com</a>
+            </p>
+            <p className="text-white text-xl">
+              Phone: <a href="tel:+1234567890" className="text-blue-500">+123 456 7890</a>
+            </p>
+            <p className="text-white text-xl">
+              Address: 123 Main Street, Anytown, USA
+            </p>
           </div>
         </div>
       </div>
